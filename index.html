@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Français I — Révision complète (Semaines 1–15)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1a17;--paper:#f6f1e7;--paper-2:#efe7d6;
+    --bleu:#28406b;--rouge:#a8332b;--gold:#9a7b32;--green:#3f7d4f;
+    --line:#d8ccb4;--muted:#6b6253;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:radial-gradient(circle at 15% 0%,#fbf7ee 0%,transparent 55%),radial-gradient(circle at 90% 100%,#f0e7d4 0%,transparent 50%),var(--paper);color:var(--ink);font-family:"Spectral",Georgia,serif;line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:900px;margin:0 auto;padding:48px 26px 90px;}
+
+  header.mast{border-top:6px solid var(--bleu);border-bottom:1px solid var(--line);padding:26px 0 22px;position:relative;margin-bottom:34px;}
+  header.mast::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,var(--bleu) 0 33%,#cdbfa6 33% 66%,var(--rouge) 66% 100%);}
+  .kicker{font-style:italic;color:var(--rouge);font-size:.92rem;margin:0 0 6px;}
+  h1{font-family:"Fraunces";font-weight:900;font-size:clamp(2rem,6vw,3.3rem);line-height:1;margin:0;letter-spacing:-.01em;}
+  .mast .sub{margin-top:14px;color:var(--muted);font-size:1rem;display:flex;flex-wrap:wrap;gap:6px 18px;}
+  .mast .sub b{color:var(--bleu);font-weight:600;}
+
+  nav.toc{background:rgba(255,255,255,.55);border:1px solid var(--line);padding:18px 22px;margin-bottom:36px;}
+  nav.toc h2{font-family:"Fraunces";font-size:.95rem;margin:0 0 10px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);}
+  nav.toc ol{margin:0;padding-left:20px;columns:2;column-gap:30px;font-size:.96rem;}
+  nav.toc li{margin:2px 0;break-inside:avoid;}
+  nav.toc a{color:var(--bleu);text-decoration:none;}
+  nav.toc a:hover{text-decoration:underline;}
+
+  .lecon{margin:52px 0 0;}
+  .lecon-head{display:flex;align-items:baseline;gap:14px;padding-bottom:8px;border-bottom:2px solid var(--ink);margin-bottom:6px;}
+  .lecon-num{font-family:"Fraunces";font-weight:900;font-size:1.9rem;color:var(--rouge);line-height:1;flex:none;}
+  .lecon-head h2{font-family:"Fraunces";font-weight:600;font-size:1.5rem;margin:0;line-height:1.05;}
+  .lecon-head .wk{margin-left:auto;font-style:italic;color:var(--muted);font-size:.88rem;align-self:flex-end;flex:none;}
+
+  h3{font-family:"Fraunces";font-weight:600;font-size:1.16rem;margin:26px 0 4px;color:var(--bleu);}
+  h3 .vn{font-family:"Spectral";font-style:italic;font-weight:400;color:var(--muted);font-size:.92rem;}
+  .note{font-size:.95rem;color:var(--muted);margin:.3rem 0 .6rem;}
+
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:.95rem;background:rgba(255,255,255,.4);}
+  caption{text-align:left;font-style:italic;color:var(--muted);font-size:.86rem;padding-bottom:4px;}
+  th,td{border:1px solid var(--line);padding:6px 11px;text-align:left;vertical-align:top;}
+  thead th{background:var(--bleu);color:#fdfaf2;font-weight:600;letter-spacing:.02em;}
+  tbody th{background:var(--paper-2);font-weight:600;}
+  td.fr{font-weight:500;color:var(--ink);}
+
+  ul.ex{list-style:none;padding:0;margin:8px 0;}
+  ul.ex li{padding:4px 0 4px 18px;position:relative;font-size:.97rem;}
+  ul.ex li::before{content:"\203A";position:absolute;left:0;color:var(--rouge);font-weight:700;}
+  .fr-ex{color:var(--bleu);font-weight:500;}
+  .vn{color:var(--muted);font-style:italic;}
+
+  .voc{columns:2;column-gap:30px;font-size:.95rem;margin:8px 0;}
+  .voc p{margin:.15rem 0;break-inside:avoid;}
+  .voc b{color:var(--bleu);}
+
+  .callout{border-left:3px solid var(--gold);background:rgba(154,123,50,.08);padding:10px 14px;margin:12px 0;font-size:.93rem;}
+  .callout b{color:var(--gold);}
+
+  .conj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:13px;margin:14px 0;}
+  .conj-card{border:1px solid var(--line);background:rgba(255,255,255,.45);}
+  .conj-card h4{margin:0;padding:5px 10px;font-family:"Fraunces";font-size:.98rem;font-weight:600;background:var(--paper-2);border-bottom:1px solid var(--line);}
+  .conj-card ul{list-style:none;margin:0;padding:7px 10px;font-size:.88rem;}
+  .conj-card li{display:flex;justify-content:space-between;gap:8px;padding:1px 0;}
+  .conj-card li span{color:var(--muted);font-style:italic;}
+  .conj-card li b{font-weight:600;}
+
+  details.exo{margin:18px 0;border:1px solid var(--line);border-left:4px solid var(--rouge);background:rgba(168,51,43,.04);border-radius:2px;}
+  details.exo > summary{cursor:pointer;padding:12px 16px;font-family:"Fraunces";font-weight:600;color:var(--rouge);list-style:none;font-size:1.02rem;}
+  details.exo > summary::-webkit-details-marker{display:none;}
+  details.exo > summary::before{content:"\270E  Bài tập — ";font-weight:600;}
+  details.exo[open] > summary{border-bottom:1px solid var(--line);}
+  .exo-body{padding:6px 18px 16px;}
+  .exo-body ol{margin:8px 0;padding-left:22px;}
+  .exo-body ol li{margin:7px 0;}
+  details.ans{margin-top:10px;}
+  details.ans summary{cursor:pointer;font-style:italic;color:var(--bleu);font-size:.9rem;}
+  details.ans .a{margin-top:6px;font-size:.93rem;background:rgba(63,125,79,.08);border-left:3px solid var(--green);padding:8px 12px;}
+  .blank{color:var(--bleu);letter-spacing:.04em;font-weight:600;}
+
+  footer{margin-top:54px;padding-top:16px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted);font-style:italic;}
+  .top{display:inline-block;margin-top:10px;font-size:.82rem;color:var(--muted);text-decoration:none;}
+  @media (max-width:560px){.voc,nav.toc ol{columns:1;}}
+  @media print{
+    body{background:#fff;}.wrap{max-width:none;padding:0;}
+    nav.toc{display:none;}
+    details.exo,details.ans{open:true;}
+    details.exo > summary,details.ans summary{color:var(--ink);}
+    .lecon-head,h3{break-after:avoid;}table,.conj-card,.callout{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap" id="top">
+
+<header class="mast">
+  <p class="kicker">Cours de français général · Pr. Sookjin Hwang · 2026 1학기</p>
+  <h1>Révision complète&nbsp;: Semaines 1 à 15</h1>
+  <div class="sub">
+    <span><b>Niveau</b> Français I (débutant)</span>
+    <span><b>Leçons</b> 1 → 8</span>
+    <span><b>Contenu</b> Grammaire · Vocabulaire · Exercices</span>
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>Sommaire</h2>
+  <ol>
+    <li><a href="#l1">Leçon 1 (S1–2) — Alphabet & prononciation</a></li>
+    <li><a href="#l2">Leçon 2 (S3–4) — Noms, articles, être / avoir / aller</a></li>
+    <li><a href="#l3">Leçon 3 (S5–6) — Chiffres, négation, féminin, pluriel, adjectifs</a></li>
+    <li><a href="#l4">Leçon 4 (S6–7) — Prépositions, possessifs, verbes -er</a></li>
+    <li><a href="#l5">Leçon 5 (S9–11) — tout, futur proche, démonstratifs, l'heure</a></li>
+    <li><a href="#l6">Leçon 6 (S12–13) — Repas, partitif, interrogatifs, prix</a></li>
+    <li><a href="#l7">Leçon 7 (S13–14) — Pronoms COD/COI, météo, transport</a></li>
+    <li><a href="#l8">Leçon 8 (S15) — Verbes pronominaux, se sentir, santé</a></li>
+    <li><a href="#exos">Exercices — Interrogatifs · COD · COI</a></li>
+    <li><a href="#annexe">Annexe — Conjugaison complète (fiche de la prof)</a></li>
+  </ol>
+</nav>
+
+<!-- ===================== LEÇON 1 ===================== -->
+<section class="lecon" id="l1">
+  <div class="lecon-head"><span class="lecon-num">1</span><h2>Alphabet & prononciation</h2><span class="wk">Semaines 1–2</span></div>
+
+  <h3>Expressions essentielles <span class="vn">— câu giao tiếp cơ bản</span></h3>
+  <div class="voc">
+    <p><b>Bonjour&nbsp;!</b> — Xin chào</p>
+    <p><b>Merci.</b> — Cảm ơn</p>
+    <p><b>Pardon.</b> — Xin lỗi</p>
+    <p><b>Ça va&nbsp;?</b> — Khỏe không? · <b>Ça va&nbsp;!</b> — Khỏe</p>
+    <p><b>Oui / Non</b> — Có / Không</p>
+    <p><b>C'est clair&nbsp;? — C'est cool&nbsp;!</b></p>
+  </div>
+
+  <h3>Les 5 accents (+ ç, œ) <span class="vn">— dấu</span></h3>
+  <table>
+    <thead><tr><th>Accent</th><th>Quy tắc</th><th>Ví dụ</th></tr></thead>
+    <tbody>
+      <tr><td class="fr">aigu — é</td><td>chỉ trên chữ e</td><td>café, été</td></tr>
+      <tr><td class="fr">circonflexe — â ê î ô û</td><td>thường thay cho chữ "s" đã mất</td><td>hôtel, île</td></tr>
+      <tr><td class="fr">tréma — ë ï</td><td>tách 2 nguyên âm đọc riêng</td><td>Noël, maïs</td></tr>
+      <tr><td class="fr">grave — à è ù</td><td>đổi cách đọc / nghĩa</td><td>père, où, à</td></tr>
+      <tr><td class="fr">cédille — ç</td><td>biến c [k] → [s]</td><td>français, garçon</td></tr>
+      <tr><td class="fr">ligature — œ</td><td>2 chữ dính nhau</td><td>cœur, œuf</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Les sons-clés <span class="vn">— âm cần nhớ</span></h3>
+  <div class="voc">
+    <p><b>/y/</b> « u » — tu, du, flûte</p>
+    <p><b>/u/</b> « ou » — vous, jour, Louvre</p>
+    <p><b>/o/</b> « au, eau » — beau, eau, jaune</p>
+    <p><b>/wa/</b> « oi » — moi, toi, roi</p>
+    <p><b>/ø/</b> « eu » — feu, jeudi · <b>/œ/</b> « œu » — sœur, cœur</p>
+    <p><b>nasals</b> — an /ɑ̃/, in /ɛ̃/, un /œ̃/, on /ɔ̃/</p>
+  </div>
+
+  <h3>Saluer & prendre congé <span class="vn">— chào hỏi / tạm biệt</span></h3>
+  <div class="voc">
+    <p><b>Au revoir · Salut</b> — Tạm biệt</p>
+    <p><b>À demain · À bientôt</b> — Hẹn mai / sớm gặp</p>
+    <p><b>À tout à l'heure</b> — Lát gặp lại</p>
+    <p><b>Bonne journée / soirée / nuit</b></p>
+    <p>le matin · le midi (12h) · l'après-midi · le soir (après 18h) · la nuit · minuit (24h)</p>
+  </div>
+
+  <details class="exo"><summary>Leçon 1</summary><div class="exo-body">
+    <ol>
+      <li>Thêm dấu đúng: <i>cafe → ___ , hotel → ___ , Noel → ___ , garcon → ___</i></li>
+      <li>Đọc/ghép âm: <i>beau, vous, tu, moi, sœur</i> — âm nào là /y/?</li>
+    </ol>
+    <details class="ans"><summary>Xem đáp án</summary><div class="a">
+    1. café, hôtel, Noël, garçon. &nbsp; 2. <b>tu</b> = /y/ (các từ kia: beau /o/, vous /u/, moi /wa/, sœur /œ/).
+    </div></details>
+  </div></details>
+  <a class="top" href="#top">↑ về đầu trang</a>
+</section>
+
+<!-- ===================== LEÇON 2 ===================== -->
+<section class="lecon" id="l2">
+  <div class="lecon-head"><span class="lecon-num">2</span><h2>Noms, articles, être · avoir · aller</h2><span class="wk">Semaines 3–4</span></div>
+
+  <h3>Les articles <span class="vn">— mạo từ (báo giống & số của danh từ)</span></h3>
+  <table>
+    <thead><tr><th></th><th>Masculin</th><th>Féminin</th><th>Pluriel</th></tr></thead>
+    <tbody>
+      <tr><th>Indéfini <span class="vn">(không xác định)</span></th><td class="fr">un</td><td class="fr">une</td><td class="fr">des</td></tr>
+      <tr><th>Défini <span class="vn">(xác định)</span></th><td class="fr">le (l')</td><td class="fr">la (l')</td><td class="fr">les</td></tr>
+    </tbody>
+  </table>
+  <p class="note"><b>Élision</b>: le/la → <b>l'</b> trước nguyên âm/h câm (l'enfant, l'université). <b>Pluriel</b>: số nhiều = số ít + <b>s</b> (un café → des cafés).</p>
+
+  <h3>Pronoms personnels <span class="vn">— đại từ nhân xưng</span></h3>
+  <table>
+    <thead><tr><th>Sujet</th><td>je</td><td>tu</td><td>il/elle</td><td>nous</td><td>vous</td><td>ils/elles</td></tr></thead>
+    <tbody><tr><th>Tonique</th><td>moi</td><td>toi</td><td>lui/elle</td><td>nous</td><td>vous</td><td>eux/elles</td></tr></tbody>
+  </table>
+  <p class="note">Dùng tonique: <i>C'est moi · C'est toi · C'est lui · Ce sont eux / Ce sont elles.</i></p>
+
+  <h3>Les chiffres 0–10 <span class="vn">— số đếm</span></h3>
+  <p class="note">zéro · un · deux · trois · quatre · cinq · six · sept · huit · neuf · dix.</p>
+
+  <h3>Trois verbes essentiels <span class="vn">— 3 động từ nền tảng</span></h3>
+  <div class="conj-grid">
+    <div class="conj-card"><h4>être <span style="font-weight:400;font-size:.78rem">(là, thì)</span></h4><ul><li><span>je</span><b>suis</b></li><li><span>tu</span><b>es</b></li><li><span>il</span><b>est</b></li><li><span>nous</span><b>sommes</b></li><li><span>vous</span><b>êtes</b></li><li><span>ils</span><b>sont</b></li></ul></div>
+    <div class="conj-card"><h4>avoir <span style="font-weight:400;font-size:.78rem">(có)</span></h4><ul><li><span>j'</span><b>ai</b></li><li><span>tu</span><b>as</b></li><li><span>il</span><b>a</b></li><li><span>nous</span><b>avons</b></li><li><span>vous</span><b>avez</b></li><li><span>ils</span><b>ont</b></li></ul></div>
+    <div class="conj-card"><h4>aller <span style="font-weight:400;font-size:.78rem">(đi)</span></h4><ul><li><span>je</span><b>vais</b></li><li><span>tu</span><b>vas</b></li><li><span>il</span><b>va</b></li><li><span>nous</span><b>allons</b></li><li><span>vous</span><b>allez</b></li><li><span>ils</span><b>vont</b></li></ul></div>
+  </div>
+  <p class="note"><b>Accord avec être</b>: tính từ/danh từ hợp giống số — <i>Il est étudiant · Elle est étudiante · Ils sont étudiants · Elles sont étudiantes.</i></p>
+
+  <details class="exo"><summary>Leçon 2</summary><div class="exo-body">
+    <ol>
+      <li>Điền mạo từ <b>indéfini</b>: ___ café (m), ___ fille (f), ___ enfants (pl).</li>
+      <li>Chia être: Nous ___ contents. Vous ___ là. Elles ___ étudiantes.</li>
+      <li>Chia avoir: Tu ___ 20 ans. Ils ___ des frères. J'___ un studio.</li>
+    </ol>
+    <details class="ans"><summary>Xem đáp án</summary><div class="a">
+    1. un café, une fille, des enfants. &nbsp; 2. sommes, êtes, sont. &nbsp; 3. as, ont, ai.
+    </div></details>
+  </div></details>
+  <a class="top" href="#top">↑ về đầu trang</a>
+</section>
+
+<!-- ===================== LEÇON 3 ===================== -->
+<section class="lecon" id="l3">
+  <div class="lecon-head"><span class="lecon-num">3</span><h2>Chiffres, négation, féminin, pluriel, adjectifs</h2><span class="wk">Semaines 5–6</span></div>
+
+  <h3>Les chiffres 11–40 & l'âge</h3>
+  <p class="note">onze, douze … vingt, <b>vingt et un</b>, vingt-deux … trente, <b>trente et un</b> … quarante. Tuổi: <i>Quel âge as-tu&nbsp;? → J'ai vingt et un <b>ans</b>.</i></p>
+
+  <h3>La négation <span class="vn">— phủ định: ne + verbe + pas</span></h3>
+  <ul class="ex">
+    <li><span class="fr-ex">Je suis étudiant → Je <b>ne</b> suis <b>pas</b> étudiant.</span></li>
+    <li><span class="fr-ex">Il est là → Il <b>n'</b>est <b>pas</b> là.</span> <span class="vn">(n' trước nguyên âm)</span></li>
+    <li><span class="fr-ex">J'ai un studio → Je n'ai <b>pas de</b> studio.</span> <span class="vn">(un/une/des → de/d' khi phủ định)</span></li>
+  </ul>
+
+  <h3>Le féminin des adjectifs/noms <span class="vn">— cách chuyển sang giống cái</span></h3>
+  <table>
+    <thead><tr><th>Quy tắc</th><th>Ví dụ</th></tr></thead>
+    <tbody>
+      <tr><td>+ e (mặc định)</td><td class="fr">français → française · étudiant → étudiante</td></tr>
+      <tr><td>đã có -e → giữ nguyên</td><td class="fr">jaune, célèbre, un/une pianiste</td></tr>
+      <tr><td>-en/-on/-el/-il → -enne/-onne/-elle/-ille</td><td class="fr">coréen→coréenne · bon→bonne · gentil→gentille</td></tr>
+      <tr><td>-er → -ère</td><td class="fr">étranger → étrangère · boulanger → boulangère</td></tr>
+      <tr><td>-eur → -euse / -rice</td><td class="fr">danseur→danseuse · acteur→actrice</td></tr>
+      <tr><td>-eux → -euse</td><td class="fr">heureux → heureuse · sérieux → sérieuse</td></tr>
+      <tr><td>-f → -ve</td><td class="fr">sportif → sportive · créatif → créative</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Le pluriel <span class="vn">— cách chuyển sang số nhiều</span></h3>
+  <p class="note">+ <b>s</b> (livre → livres). Đã có -s/-x → giữ nguyên (un pays → des pays). <b>-al → -aux</b> (animal → animaux). <b>-eau → -eaux</b> (gâteau → gâteaux, beau → beaux).</p>
+
+  <h3>La place de l'adjectif <span class="vn">— vị trí tính từ</span></h3>
+  <p class="note"><b>Sau danh từ</b>: màu sắc (une fleur rose), hình dạng (une table ronde), quốc tịch (un boulanger français), tính từ dài (un voyage extraordinaire). <b>Trước danh từ</b> (tính từ ngắn, hay dùng): bon, beau (bel), nouveau (nouvel), joli, grand, petit, mauvais, jeune, vieux (vieil).</p>
+  <div class="callout"><b>Dạng đặc biệt</b> trước nguyên âm: <i>nouvel</i> appartement, <i>bel</i> homme, <i>vieil</i> ami.</div>
+
+  <details class="exo"><summary>Leçon 3</summary><div class="exo-body">
+    <ol>
+      <li>Chuyển sang phủ định: <i>J'ai des sœurs. → ___</i></li>
+      <li>Đổi sang giống cái: <i>un acteur créatif → ___ · un musicien coréen → ___ · un étranger heureux → ___</i></li>
+      <li>Đổi sang số nhiều: <i>un cadeau spécial → ___ · un animal national → ___</i></li>
+      <li>Đặt tính từ đúng chỗ: <i>(rose) une fleur ___ · (nouveau) un ___ studio · (français) une chanteuse ___</i></li>
+    </ol>
+    <details class="ans"><summary>Xem đáp án</summary><div class="a">
+    1. Je n'ai pas de sœurs. &nbsp; 2. une actrice créative · une musicienne coréenne · une étrangère heureuse. &nbsp;
+    3. des cadeaux spéciaux · des animaux nationaux. &nbsp; 4. une fleur rose · un <b>nouveau</b> studio · une chanteuse française.
+    </div></details>
+  </div></details>
+  <a class="top" href="#top">↑ về đầu trang</a>
+</section>
+
+<!-- ===================== LEÇON 4 ===================== -->
+<section class="lecon" id="l4">
+  <div class="lecon-head"><span class="lecon-num">4</span><h2>Prépositions, possessifs, verbes du 1<sup>er</sup> groupe</h2><span class="wk">Semaines 6–7</span></div>
+
+  <h3>Le voyage & la contraction <span class="vn">— đi đến nước/nơi</span></h3>
+  <p class="note"><b>en</b> + nước giống cái / bắt đầu nguyên âm (en France, en Iran) · <b>au</b> + nước giống đực (au Japon) · <b>aux</b> + nước số nhiều (aux États-Unis) · <b>à</b> + thành phố (à Paris).</p>
+  <p class="note"><b>Contraction</b>: à + le = <b>au</b> · à + les = <b>aux</b> (à le cinéma ✗ → au cinéma).</p>
+
+  <h3>Prépositions de lieu <span class="vn">— vị trí · "có"</span></h3>
+  <p class="note"><b>dans</b> (trong) · <b>sur</b> (trên) · <b>sous</b> (dưới) · <b>à côté de</b> (bên cạnh). <b>Il y a…</b> = có… (Il y a des livres dans le sac).</p>
+
+  <h3>Pronoms interrogatifs simples</h3>
+  <p class="note"><b>Người</b>: C'est qui&nbsp;? / Qui est-ce&nbsp;? · <b>Vật</b>: C'est quoi&nbsp;? / Qu'est-ce que c'est&nbsp;? → trả lời C'est… (số ít) / Ce sont… (số nhiều).</p>
+
+  <h3>Les adjectifs possessifs <span class="vn">— tính từ sở hữu</span></h3>
+  <table>
+    <thead><tr><th>Người sở hữu</th><th>+ nam (m)</th><th>+ nữ (f)</th><th>+ số nhiều</th></tr></thead>
+    <tbody>
+      <tr><th>je</th><td class="fr">mon</td><td class="fr">ma (mon*)</td><td class="fr">mes</td></tr>
+      <tr><th>tu</th><td class="fr">ton</td><td class="fr">ta (ton*)</td><td class="fr">tes</td></tr>
+      <tr><th>il/elle</th><td class="fr">son</td><td class="fr">sa (son*)</td><td class="fr">ses</td></tr>
+      <tr><th>nous</th><td class="fr">notre</td><td class="fr">notre</td><td class="fr">nos</td></tr>
+      <tr><th>vous</th><td class="fr">votre</td><td class="fr">votre</td><td class="fr">vos</td></tr>
+      <tr><th>ils/elles</th><td class="fr">leur</td><td class="fr">leur</td><td class="fr">leurs</td></tr>
+    </tbody>
+  </table>
+  <p class="note">* Trước danh từ giống cái bắt đầu bằng nguyên âm: dùng mon/ton/son — <i>mon amie</i> (không phải "ma amie").</p>
+
+  <h3>Les verbes du 1<sup>er</sup> groupe (-er) <span class="vn">— hiện tại</span></h3>
+  <p class="note">Đuôi: <b>-e, -es, -e, -ons, -ez, -ent</b>. (parler, travailler, danser, chanter, habiter, aimer, jouer…). <i>parler</i> + ngôn ngữ <b>không</b> mạo từ: <i>Je parle français.</i></p>
+  <p class="note"><b>jouer à</b> + thể thao/trò chơi (jouer au football) · <b>jouer de</b> + nhạc cụ (jouer du piano).</p>
+
+  <h3>Aimer / adorer / détester & la préférence</h3>
+  <p class="note">aimer/adorer/détester + <b>article défini</b> + nom (J'aime <b>le</b> café) hoặc + <b>infinitif</b> (J'aime danser).</p>
+  <div class="callout"><b>Thang mức độ</b>: J'adore &gt; J'aime beaucoup &gt; J'aime &gt; Je n'aime pas beaucoup &gt; Je n'aime pas &gt; Je déteste.</div>
+
+  <details class="exo"><summary>Leçon 4</summary><div class="exo-body">
+    <ol>
+      <li>Điền en/au/aux/à: Je vais ___ Japon · Tu vas ___ France · Il va ___ États-Unis · Nous allons ___ Paris.</li>
+      <li>Contraction: Elle va ___ (à+le) cinéma · Ils vont ___ (à+les) boutiques.</li>
+      <li>Possessif: C'est à moi → C'est ___ livre (m) · C'est à eux → C'est ___ chien.</li>
+      <li>Chia -er: Nous (habiter) ___ à Séoul · Ils (jouer) ___ au foot · Elle (aimer) ___ la musique.</li>
+    </ol>
+    <details class="ans"><summary>Xem đáp án</summary><div class="a">
+    1. au Japon · en France · aux États-Unis · à Paris. &nbsp; 2. au cinéma · aux boutiques. &nbsp;
+    3. mon livre · leur chien. &nbsp; 4. habitons · jouent · aime.
+    </div></details>
+  </div></details>
+  <a class="top" href="#top">↑ về đầu trang</a>
+</section>
+
+<!-- ===================== LEÇON 5 ===================== -->
+<section class="lecon" id="l5">
+  <div class="lecon-head"><span class="lecon-num">5</span><h2>« tout », futur proche, démonstratifs, nationalité, l'heure</h2><span class="wk">Semaines 9–11</span></div>
+
+  <h3>Le déterminant « tout »</h3>
+  <table>
+    <thead><tr><th></th><th>Masculin</th><th>Féminin</th></tr></thead>
+    <tbody><tr><th>Singulier</th><td class="fr">tout</td><td class="fr">toute</td></tr><tr><th>Pluriel</th><td class="fr">tous</td><td class="fr">toutes</td></tr></tbody>
+  </table>
+  <p class="note">tout le monde · toute la journée · tous les jours · toutes les étudiantes.</p>
+
+  <h3>Le futur proche & le passé récent</h3>
+  <p class="note"><b>Futur proche</b> = aller + infinitif (<i>Je vais partir</i> — sắp đi). <b>Passé récent</b> = venir de + infinitif (<i>Je viens de déjeuner</i> — vừa ăn xong).</p>
+
+  <h3>L'adjectif démonstratif & le pronom « on »</h3>
+  <p class="note"><b>ce / cet / cette / ces</b> (cet trước nguyên âm/h câm: cet homme). <b>on</b> = nous / ai đó / người ta — luôn chia ngôi 3 số ít (on mange).</p>
+
+  <h3>La nationalité <span class="vn">— quốc tịch</span></h3>
+  <p class="note"><i>Tu viens d'où&nbsp;?</i> → Je viens <b>de</b> France / <b>du</b> Japon / <b>des</b> États-Unis / <b>d'</b>Espagne. <i>Tu es de quelle nationalité&nbsp;?</i> → Je suis français(e) / coréen(ne) / vietnamien(ne).</p>
+
+  <h3>L'adjectif « quel » <span class="vn">— nghi vấn & cảm thán</span></h3>
+  <p class="note">quel / quelle / quels / quelles. Nghi vấn: <i>Quelle est votre nationalité&nbsp;?</i> · Cảm thán: <i>Quelle chance&nbsp;! · Quel beau temps&nbsp;!</i></p>
+
+  <h3>Dire l'heure <span class="vn">— giờ giấc</span></h3>
+  <table>
+    <thead><tr><th>Officiel</th><th>Courant (0–12h)</th></tr></thead>
+    <tbody>
+      <tr><td class="fr">huit heures quinze</td><td class="fr">huit heures et quart</td></tr>
+      <tr><td class="fr">huit heures trente</td><td class="fr">huit heures et demie</td></tr>
+      <tr><td class="fr">huit heures quarante-cinq</td><td class="fr">neuf heures moins le quart</td></tr>
+      <tr><td class="fr">douze heures / zéro heure</td><td class="fr">midi / minuit</td></tr>
+    </tbody>
+  </table>
+  <p class="note">« et quart / et demie / moins le quart » <b>không</b> dùng với giờ 24h (treize heures…).</p>
+
+  <h3>Expressions « avoir + nom »</h3>
+  <div class="voc">
+    <p><b>avoir faim / soif</b> — đói / khát</p>
+    <p><b>avoir sommeil</b> — buồn ngủ</p>
+    <p><b>avoir peur</b> — sợ</p>
+    <p><b>avoir froid / chaud</b> — lạnh / nóng</p>
+    <p><b>avoir mal</b> — đau</p>
+    <p><b>avoir raison / tort</b> — đúng / sai</p>
+  </div>
+
+  <details class="exo"><summary>Leçon 5</summary><div class="exo-body">
+    <ol>
+      <li>« tout »: ___ le monde · ___ la journée · ___ les jours · ___ les filles.</li>
+      <li>Futur proche: « Il va au cinéma. » → ___ . « Mon frère a 17 ans. » → ___ .</li>
+      <li>Démonstratif: ___ maison (f) · ___ homme · ___ étudiants.</li>
+      <li>Nationalité: Je viens ___ Japon · Je viens ___ Espagne · Je suis ___ (Việt).</li>
+      <li>L'heure (8h45): forme courante = ___ .</li>
+    </ol>
+    <details class="ans"><summary>Xem đáp án</summary><div class="a">
+    1. tout · toute · tous · toutes. &nbsp; 2. Il va aller au cinéma · Mon frère va avoir 17 ans. &nbsp;
+    3. cette maison · cet homme · ces étudiants. &nbsp; 4. du Japon · d'Espagne · vietnamien(ne). &nbsp;
+    5. neuf heures moins le quart.
+    </div></details>
+  </div></details>
+  <a class="top" href="#top">↑ về đầu trang</a>
+</section>
+
+<!-- ===================== LEÇON 6 ===================== -->
+<section class="lecon" id="l6">
+  <div class="lecon-head"><span class="lecon-num">6</span><h2>Le repas, l'article partitif, les interrogatifs, le prix</h2><span class="wk">Semaines 12–13</span></div>
+
+  <h3>Le repas français & le couvert</h3>
+  <p class="note">Trình tự: <b>apéritif → entrée → plat principal → dessert → café</b>. Cuisson (độ chín thịt): <b>saignant · à point · bien cuit</b>. Le couvert: une assiette, une fourchette, un couteau, une cuillère, un verre. Ở quán: <i>L'addition, s'il vous plaît&nbsp;!</i></p>
+
+  <h3>L'article partitif <span class="vn">— mạo từ chỉ phần / lượng</span></h3>
+  <table>
+    <thead><tr><th>Masculin</th><th>Féminin</th><th>Voyelle/h</th><th>Pluriel</th></tr></thead>
+    <tbody><tr><td class="fr">du</td><td class="fr">de la</td><td class="fr">de l'</td><td class="fr">des</td></tr></tbody>
+  </table>
+  <p class="note">Je mange <b>du</b> pain · Je veux <b>de l'</b>eau · J'ai <b>de la</b> chance. Phủ định → <b>de / d'</b>: <i>Je n'ai pas <b>de</b> monnaie.</i></p>
+  <div class="callout"><b>Phân biệt</b>: J'aime <b>le</b> café (nói chung) · Je veux <b>du</b> café (một lượng) · Je veux <b>un</b> café (một tách).</div>
+
+  <h3>Les pronoms interrogatifs <span class="vn">— qui / que / quoi</span></h3>
+  <table>
+    <thead><tr><th></th><th>Une CHOSE <span class="vn">(vật)</span></th><th>Une PERSONNE <span class="vn">(người)</span></th></tr></thead>
+    <tbody>
+      <tr><th>Sujet</th><td class="fr">Qu'est-ce qui…</td><td class="fr">Qui / Qui est-ce qui…</td></tr>
+      <tr><th>Objet</th><td class="fr">Que… / Qu'est-ce que…</td><td class="fr">Qui… / Qui est-ce que…</td></tr>
+    </tbody>
+  </table>
+  <p class="note">Ví dụ: <i>Qu'est-ce qui ne va pas&nbsp;? · Que veux-tu prendre&nbsp;? = Qu'est-ce que tu veux prendre&nbsp;? · Qui vient ce soir&nbsp;?</i></p>
+
+  <h3>Le prix & le paiement</h3>
+  <p class="note"><i>C'est combien&nbsp;? · Ça coûte combien&nbsp;?</i> Trả tiền: <b>en espèces / en liquide</b> (tiền mặt), <b>par carte (bancaire/bleue)</b>, <b>par chèque</b>. (prendre: je prends, nous prenons, ils prennent.)</p>
+
+  <details class="exo"><summary>Leçon 6</summary><div class="exo-body">
+    <ol>
+      <li>Partitif: Je mange ___ pain · Je veux ___ eau · J'ai ___ chance · Je n'ai pas ___ monnaie.</li>
+      <li>Interrogatif: ___ tu veux prendre&nbsp;? (vật, objet) · ___ vient ce soir&nbsp;? (người, sujet)</li>
+      <li>Chia prendre: Nous ___ le métro · Ils ___ un café.</li>
+    </ol>
+    <details class="ans"><summary>Xem đáp án</summary><div class="a">
+    1. du pain · de l'eau · de la chance · pas de monnaie. &nbsp;
+    2. Qu'est-ce que tu veux prendre&nbsp;? · Qui (est-ce qui) vient ce soir&nbsp;? &nbsp;
+    3. prenons · prennent.
+    </div></details>
+  </div></details>
+  <a class="top" href="#top">↑ về đầu trang</a>
+</section>
+
+<!-- ===================== LEÇON 7 ===================== -->
+<section class="lecon" id="l7">
+  <div class="lecon-head"><span class="lecon-num">7</span><h2>Pronoms compléments COD/COI, météo, transport</h2><span class="wk">Semaines 13–14</span></div>
+
+  <h3>Les pronoms compléments <span class="vn">— bổ ngữ trực tiếp / gián tiếp</span></h3>
+  <table>
+    <thead><tr><th></th><th>COD <span class="vn">(Qui? Quoi?)</span></th><th>COI <span class="vn">(À qui? À quoi?)</span></th></tr></thead>
+    <tbody>
+      <tr><th>je / tu</th><td class="fr">me · te</td><td class="fr">me · te</td></tr>
+      <tr><th>il / elle</th><td class="fr">le · la (l')</td><td class="fr">lui</td></tr>
+      <tr><th>nous / vous</th><td class="fr">nous · vous</td><td class="fr">nous · vous</td></tr>
+      <tr><th>ils / elles</th><td class="fr">les</td><td class="fr">leur</td></tr>
+    </tbody>
+  </table>
+  <ul class="ex">
+    <li><span class="fr-ex">Je lis le livre → Je <b>le</b> lis.</span> <span class="vn">(COD)</span></li>
+    <li><span class="fr-ex">Je parle à Paul → Je <b>lui</b> parle.</span> <span class="vn">(COI)</span></li>
+    <li><span class="fr-ex">Vous écrivez à votre fille → Vous <b>lui</b> écrivez.</span></li>
+    <li><span class="fr-ex">Je veux dire un mot aux enfants → Je veux <b>leur</b> dire un mot.</span></li>
+  </ul>
+  <div class="callout"><b>Thứ tự khi có 2 đại từ</b>: me/te/nous/vous → le/la/les → lui/leur. <i>Je <b>te le</b> donne · Je vais <b>les leur</b> offrir.</i></div>
+
+  <h3>La météo & les saisons</h3>
+  <div class="voc">
+    <p><b>Il fait beau / gris</b> — đẹp / âm u</p>
+    <p><b>Il fait froid / frais / chaud</b></p>
+    <p><b>Il y a du soleil / du vent / des nuages</b></p>
+    <p><b>Il pleut · Il neige</b> — mưa / tuyết</p>
+    <p>Saisons: <b>au</b> printemps · <b>en</b> été · <b>en</b> automne · <b>en</b> hiver</p>
+  </div>
+
+  <h3>Les moyens de transport</h3>
+  <p class="note"><b>en</b> + xe có mui kín (en voiture, en bus, en métro, en train, en avion) · <b>à</b> + đi bộ/xe hở (à pied, à vélo, à moto).</p>
+
+  <details class="exo"><summary>Leçon 7</summary><div class="exo-body">
+    <ol>
+      <li>Thay COD: Nous regardons les enfants → ___ . Tu aimes la musique → ___ .</li>
+      <li>Thay COI: Je parle à Marie → ___ . Vous écrivez à vos parents → ___ .</li>
+      <li>Điền: Il fait ___ (đẹp) aujourd'hui · Je vais à la fac ___ bus · ___ hiver, il neige.</li>
+    </ol>
+    <details class="ans"><summary>Xem đáp án</summary><div class="a">
+    1. Nous les regardons · Tu l'aimes. &nbsp; 2. Je lui parle · Vous leur écrivez. &nbsp;
+    3. beau · en bus · En hiver.
+    </div></details>
+  </div></details>
+  <a class="top" href="#top">↑ về đầu trang</a>
+</section>
+
+<!-- ===================== LEÇON 8 ===================== -->
+<section class="lecon" id="l8">
+  <div class="lecon-head"><span class="lecon-num">8</span><h2>Les verbes pronominaux, se sentir, le médecin</h2><span class="wk">Semaine 15</span></div>
+
+  <h3>Les verbes pronominaux <span class="vn">— động từ phản thân (sujet = objet)</span></h3>
+  <p class="note">Đại từ phản thân đổi theo chủ ngữ: <b>me · te · se · nous · vous · se</b> (rút gọn m'/t'/s' trước nguyên âm). Ví dụ se laver: je <b>me</b> lave, tu <b>te</b> laves, il <b>se</b> lave, nous <b>nous</b> lavons, vous <b>vous</b> lavez, ils <b>se</b> lavent.</p>
+  <div class="callout">Sau giới từ (pour…) hay động từ đã chia (aller, vouloir, détester…), động từ để <b>nguyên thể</b> nhưng đại từ vẫn khớp chủ ngữ: <i>Je rentre pour <b>me</b> reposer · Il déteste <b>se</b> promener seul.</i></div>
+
+  <h3>Vocabulaire — la routine quotidienne</h3>
+  <div class="voc">
+    <p><b>se réveiller</b> — thức dậy</p>
+    <p><b>se lever</b> — ra khỏi giường</p>
+    <p><b>se préparer</b> — sửa soạn</p>
+    <p><b>se laver / se raser</b> — tắm / cạo râu</p>
+    <p><b>se maquiller / se coiffer</b> — trang điểm / chải đầu</p>
+    <p><b>s'habiller / se changer</b> — mặc / thay đồ</p>
+    <p><b>se reposer / se coucher</b> — nghỉ / đi ngủ</p>
+    <p><b>s'amuser</b> — vui chơi</p>
+    <p><b>se promener</b> — đi dạo <span class="vn">(je me promène, è)</span></p>
+    <p><b>se rendre (à)</b> — đi đến <span class="vn">(je me rends)</span></p>
+    <p><b>s'intéresser (à)</b> — quan tâm đến</p>
+  </div>
+
+  <h3>sentir vs se sentir</h3>
+  <table>
+    <thead><tr><th></th><th>Nghĩa</th><th>Ví dụ</th></tr></thead>
+    <tbody>
+      <tr><td class="fr">sentir</td><td>ngửi / cảm nhận (+ danh từ)</td><td>Il sent la fleur · Tu sens le danger</td></tr>
+      <tr><td class="fr">se sentir</td><td>cảm thấy trong người (+ tính từ)</td><td>Je me sens fatiguée = Je suis fatiguée</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Chez le médecin — vocabulaire santé</h3>
+  <div class="voc">
+    <p><b>avoir mal à</b> — đau ở (à la tête / à la gorge)</p>
+    <p><b>la fièvre · tousser</b> — sốt · ho</p>
+    <p><b>être grippé(e) / la grippe</b> — bị cúm</p>
+    <p><b>croire</b> — tin, nghĩ rằng</p>
+    <p><b>faire une ordonnance</b> — kê đơn</p>
+    <p><b>il faut qqch à qqn</b> — ai cần gì (il me faut…)</p>
+    <p><b>avoir besoin de</b> — cần</p>
+    <p><b>dormir · ne… plus</b> — ngủ · không… nữa</p>
+    <p><b>depuis · Ça fait…</b> — từ / đã được (bao lâu)</p>
+    <p><b>en ce moment · ces jours-ci</b> — lúc này / mấy hôm nay</p>
+  </div>
+
+  <details class="exo"><summary>Leçon 8</summary><div class="exo-body">
+    <ol>
+      <li>Chia phản thân: Nous (se lever) ___ à 7h · Ils (s'amuser) ___ · Elle (se promener) ___ .</li>
+      <li>Đại từ đúng: Je rentre pour ___ reposer · Tu rentres pour ___ reposer.</li>
+      <li>sentir / se sentir: Je ___ fatiguée · Il ___ la fleur.</li>
+    </ol>
+    <details class="ans"><summary>Xem đáp án</summary><div class="a">
+    1. nous levons · s'amusent · se promène. &nbsp; 2. me reposer · te reposer. &nbsp;
+    3. me sens · sent.
+    </div></details>
+  </div></details>
+  <a class="top" href="#top">↑ về đầu trang</a>
+</section>
+
+<!-- ===================== EXERCICES ===================== -->
+<section class="lecon" id="exos">
+  <div class="lecon-head"><span class="lecon-num">★</span><h2>Exercices — Pronoms interrogatifs, COD & COI</h2><span class="wk">Fiche de la prof</span></div>
+  <p class="note">Đề bài lấy từ file <i>Exercices — pronoms interrogatifs, COD, COI</i> của cô. Đáp án do mình soạn (bấm để xem). Đặt đại từ <b>trước động từ chia</b>; nếu có động từ nguyên thể (vouloir/aller/pouvoir + inf) thì đặt trước <b>infinitif</b>.</p>
+
+  <details class="exo" open><summary>Partie I — Pronoms interrogatifs</summary><div class="exo-body">
+    <p class="note">qui · qui est-ce qui · qui est-ce que · quoi · que · qu'est-ce qui · qu'est-ce que</p>
+    <ol>
+      <li>____ est ce garçon&nbsp;? <span class="vn">(ai?)</span></li>
+      <li>____ tu manges&nbsp;? <span class="vn">(cái gì?)</span></li>
+      <li>____ arrive&nbsp;? <span class="vn">(chuyện gì đang xảy ra?)</span></li>
+      <li>____ fais-tu&nbsp;? <span class="vn">(có đảo ngữ)</span></li>
+      <li>____ parle avec Marie&nbsp;? <span class="vn">(ai — chủ ngữ)</span></li>
+      <li>____ vous allez prendre&nbsp;?</li>
+      <li>____ vient de téléphoner&nbsp;? <span class="vn">(ai — chủ ngữ)</span></li>
+      <li>Tu écris ____&nbsp;? <span class="vn">(cuối câu)</span></li>
+      <li>____ attendons-nous&nbsp;? <span class="vn">(có đảo ngữ)</span></li>
+      <li>____ ils vont visiter&nbsp;?</li>
+    </ol>
+    <details class="ans"><summary>Xem đáp án</summary><div class="a">
+    1. <b>Qui</b> est ce garçon&nbsp;? &nbsp; 2. <b>Qu'est-ce que</b> tu manges&nbsp;? &nbsp; 3. <b>Qu'est-ce qui</b> arrive&nbsp;? &nbsp;
+    4. <b>Que</b> fais-tu&nbsp;? &nbsp; 5. <b>Qui</b> (est-ce qui) parle avec Marie&nbsp;? &nbsp; 6. <b>Qu'est-ce que</b> vous allez prendre&nbsp;? &nbsp;
+    7. <b>Qui</b> (est-ce qui) vient de téléphoner&nbsp;? &nbsp; 8. Tu écris <b>quoi</b>&nbsp;? &nbsp; 9. <b>Qu'</b>attendons-nous&nbsp;? &nbsp;
+    10. <b>Qu'est-ce qu'</b>ils vont visiter&nbsp;?
+    <br><span class="vn">Mẹo: chủ ngữ-người → qui / qui est-ce qui · vật-chủ ngữ → qu'est-ce qui · vật-tân ngữ → que (đảo ngữ) / qu'est-ce que · sau giới từ hoặc cuối câu → quoi.</span>
+    </div></details>
+  </div></details>
+
+  <details class="exo"><summary>Partie II — Pronoms COD (directs)</summary><div class="exo-body">
+    <ol>
+      <li>Vous connaissez la moutarde de Dijon&nbsp;? — Oui, ____</li>
+      <li>Le directeur nous attend à dix heures&nbsp;? — Non, ____ à onze heures.</li>
+      <li>Tu laisses tes clés dans la voiture&nbsp;? — Oui, ____</li>
+      <li>Le frère de Jean n'aime pas cette chanson&nbsp;? — Si, ____</li>
+      <li>Elle lit ce journal tous les soirs&nbsp;? — Non, ____ tous les matins.</li>
+      <li>Vos parents invitent leurs amis toutes les semaines&nbsp;? — Oui, ____</li>
+      <li>Pascale vient chercher les gâteaux ce soir&nbsp;? — Non, ____ demain.</li>
+      <li>Il regarde la télévision&nbsp;? — Non, ____</li>
+      <li>Tu prends le métro tous les jours&nbsp;? — Oui, ____</li>
+      <li>Amélie ne te prête pas son stylo&nbsp;? — Si, ____</li>
+    </ol>
+    <details class="ans"><summary>Xem đáp án</summary><div class="a">
+    1. Oui, je <b>la</b> connais. &nbsp; 2. Non, il <b>nous</b> attend à onze heures. &nbsp; 3. Oui, je <b>les</b> laisse dans la voiture. &nbsp;
+    4. Si, il <b>l'</b>aime. &nbsp; 5. Non, elle <b>le</b> lit tous les matins. &nbsp; 6. Oui, ils <b>les</b> invitent toutes les semaines. &nbsp;
+    7. Non, elle vient <b>les</b> chercher demain. <span class="vn">(les trước infinitif chercher)</span> &nbsp; 8. Non, il ne <b>la</b> regarde pas. &nbsp;
+    9. Oui, je <b>le</b> prends tous les jours. &nbsp; 10. Si, elle <b>me le</b> prête. <span class="vn">(me = à toi→tôi, le = son stylo)</span>
+    </div></details>
+  </div></details>
+
+  <details class="exo"><summary>Partie III — Pronoms COI (indirects)</summary><div class="exo-body">
+    <ol>
+      <li>Tu téléphones à Émilie tous les samedis&nbsp;? — Non, ____ tous les dimanches.</li>
+      <li>Elle ne veut pas parler à Rémi&nbsp;? — Si, ____</li>
+      <li>Vous écrivez souvent à vos amis&nbsp;? — Oui, ____</li>
+      <li>Nous souhaitons « Bon anniversaire » à Sylvie ce soir&nbsp;? — Non, ____ demain matin.</li>
+      <li>Tu demandes l'information à Paul&nbsp;? — Oui, ____</li>
+      <li>Il envoie un cadeau à son père&nbsp;? — Non, ____</li>
+      <li>Voulez-vous laisser un message à vos filles&nbsp;? — Oui, ____</li>
+      <li>Ce film plaît aux étudiants&nbsp;? — Non, ____</li>
+      <li>Ils prêtent leurs livres à Julie et à moi&nbsp;? — Non, ____</li>
+    </ol>
+    <details class="ans"><summary>Xem đáp án</summary><div class="a">
+    1. Non, je <b>lui</b> téléphone tous les dimanches. &nbsp; 2. Si, elle veut <b>lui</b> parler. &nbsp; 3. Oui, je <b>leur</b> écris souvent. &nbsp;
+    4. Non, nous <b>lui</b> souhaitons « Bon anniversaire » demain matin. &nbsp; 5. Oui, je <b>lui</b> demande l'information. &nbsp;
+    6. Non, il ne <b>lui</b> envoie pas de cadeau. &nbsp; 7. Oui, je veux <b>leur</b> laisser un message. &nbsp;
+    8. Non, il ne <b>leur</b> plaît pas. &nbsp; 9. Non, ils ne <b>nous</b> prêtent pas leurs livres. <span class="vn">(à Julie et à moi = nous)</span>
+    </div></details>
+  </div></details>
+
+  <details class="exo"><summary>Partie IV — Deux pronoms (COD + COI)</summary><div class="exo-body">
+    <p class="note">Thứ tự: me/te/nous/vous → <b>le/la/les</b> → <b>lui/leur</b>.</p>
+    <ol>
+      <li>Vous lui envoyez la lettre par la poste&nbsp;? — Non, ____ par courriel.</li>
+      <li>Vous laissez vos clés à votre voisine&nbsp;? — Oui, ____</li>
+      <li>Il veut vendre sa voiture à son père&nbsp;? — Oui, ____</li>
+      <li>Elle explique la règle de grammaire à Paul&nbsp;? — Oui, ____</li>
+      <li>Tu me prêtes ton téléphone portable&nbsp;? — Non, ____</li>
+      <li>Vous n'offrez pas ces fleurs à vos parents&nbsp;? — Si, ____</li>
+      <li>Tu peux me raconter les histoires de Marie&nbsp;? — Oui, ____</li>
+      <li>Demandes-tu ton chemin au policier&nbsp;? — Non, ____</li>
+    </ol>
+    <details class="ans"><summary>Xem đáp án</summary><div class="a">
+    1. Non, je <b>la lui</b> envoie par courriel. &nbsp; 2. Oui, je <b>les lui</b> laisse. &nbsp; 3. Oui, il veut <b>la lui</b> vendre. &nbsp;
+    4. Oui, elle <b>la lui</b> explique. &nbsp; 5. Non, je ne <b>te le</b> prête pas. &nbsp;
+    6. Si, je <b>les leur</b> offre. <span class="vn">(câu hỏi phủ định → trả lời khẳng định dùng « Si » chứ không phải « Oui »)</span> &nbsp;
+    7. Oui, je peux <b>te les</b> raconter. &nbsp; 8. Non, je ne <b>le lui</b> demande pas.
+    </div></details>
+  </div></details>
+  <a class="top" href="#top">↑ về đầu trang</a>
+</section>
+
+<!-- ===================== ANNEXE ===================== -->
+<section class="lecon" id="annexe">
+  <div class="lecon-head"><span class="lecon-num">A</span><h2>Conjugaison complète (fiche de la prof)</h2><span class="wk">Annexe</span></div>
+  <p class="note">Toàn bộ động từ trong fiche <i>Conjugaison des verbes</i> của cô, ở présent de l'indicatif. Thứ tự: je · tu · il · nous · vous · ils (elle = il, elles = ils).</p>
+
+  <h3>Irréguliers fréquents <span class="vn">(3<sup>e</sup> groupe)</span></h3>
+  <div class="conj-grid">
+    <div class="conj-card"><h4>être</h4><ul><li><span>je</span><b>suis</b></li><li><span>tu</span><b>es</b></li><li><span>il</span><b>est</b></li><li><span>ns</span><b>sommes</b></li><li><span>vs</span><b>êtes</b></li><li><span>ils</span><b>sont</b></li></ul></div>
+    <div class="conj-card"><h4>avoir</h4><ul><li><span>j'</span><b>ai</b></li><li><span>tu</span><b>as</b></li><li><span>il</span><b>a</b></li><li><span>ns</span><b>avons</b></li><li><span>vs</span><b>avez</b></li><li><span>ils</span><b>ont</b></li></ul></div>
+    <div class="conj-card"><h4>aller</h4><ul><li><span>je</span><b>vais</b></li><li><span>tu</span><b>vas</b></li><li><span>il</span><b>va</b></li><li><span>ns</span><b>allons</b></li><li><span>vs</span><b>allez</b></li><li><span>ils</span><b>vont</b></li></ul></div>
+    <div class="conj-card"><h4>faire</h4><ul><li><span>je</span><b>fais</b></li><li><span>tu</span><b>fais</b></li><li><span>il</span><b>fait</b></li><li><span>ns</span><b>faisons</b></li><li><span>vs</span><b>faites</b></li><li><span>ils</span><b>font</b></li></ul></div>
+    <div class="conj-card"><h4>pouvoir</h4><ul><li><span>je</span><b>peux</b></li><li><span>tu</span><b>peux</b></li><li><span>il</span><b>peut</b></li><li><span>ns</span><b>pouvons</b></li><li><span>vs</span><b>pouvez</b></li><li><span>ils</span><b>peuvent</b></li></ul></div>
+    <div class="conj-card"><h4>vouloir</h4><ul><li><span>je</span><b>veux</b></li><li><span>tu</span><b>veux</b></li><li><span>il</span><b>veut</b></li><li><span>ns</span><b>voulons</b></li><li><span>vs</span><b>voulez</b></li><li><span>ils</span><b>veulent</b></li></ul></div>
+    <div class="conj-card"><h4>prendre</h4><ul><li><span>je</span><b>prends</b></li><li><span>tu</span><b>prends</b></li><li><span>il</span><b>prend</b></li><li><span>ns</span><b>prenons</b></li><li><span>vs</span><b>prenez</b></li><li><span>ils</span><b>prennent</b></li></ul></div>
+    <div class="conj-card"><h4>comprendre</h4><ul><li><span>je</span><b>comprends</b></li><li><span>tu</span><b>comprends</b></li><li><span>il</span><b>comprend</b></li><li><span>ns</span><b>comprenons</b></li><li><span>vs</span><b>comprenez</b></li><li><span>ils</span><b>comprennent</b></li></ul></div>
+    <div class="conj-card"><h4>venir</h4><ul><li><span>je</span><b>viens</b></li><li><span>tu</span><b>viens</b></li><li><span>il</span><b>vient</b></li><li><span>ns</span><b>venons</b></li><li><span>vs</span><b>venez</b></li><li><span>ils</span><b>viennent</b></li></ul></div>
+    <div class="conj-card"><h4>voir</h4><ul><li><span>je</span><b>vois</b></li><li><span>tu</span><b>vois</b></li><li><span>il</span><b>voit</b></li><li><span>ns</span><b>voyons</b></li><li><span>vs</span><b>voyez</b></li><li><span>ils</span><b>voient</b></li></ul></div>
+    <div class="conj-card"><h4>savoir</h4><ul><li><span>je</span><b>sais</b></li><li><span>tu</span><b>sais</b></li><li><span>il</span><b>sait</b></li><li><span>ns</span><b>savons</b></li><li><span>vs</span><b>savez</b></li><li><span>ils</span><b>savent</b></li></ul></div>
+    <div class="conj-card"><h4>connaître</h4><ul><li><span>je</span><b>connais</b></li><li><span>tu</span><b>connais</b></li><li><span>il</span><b>connaît</b></li><li><span>ns</span><b>connaissons</b></li><li><span>vs</span><b>connaissez</b></li><li><span>ils</span><b>connaissent</b></li></ul></div>
+    <div class="conj-card"><h4>dire</h4><ul><li><span>je</span><b>dis</b></li><li><span>tu</span><b>dis</b></li><li><span>il</span><b>dit</b></li><li><span>ns</span><b>disons</b></li><li><span>vs</span><b>dites</b></li><li><span>ils</span><b>disent</b></li></ul></div>
+    <div class="conj-card"><h4>écrire</h4><ul><li><span>j'</span><b>écris</b></li><li><span>tu</span><b>écris</b></li><li><span>il</span><b>écrit</b></li><li><span>ns</span><b>écrivons</b></li><li><span>vs</span><b>écrivez</b></li><li><span>ils</span><b>écrivent</b></li></ul></div>
+    <div class="conj-card"><h4>offrir <span style="font-weight:400;font-size:.76rem">(như -er)</span></h4><ul><li><span>j'</span><b>offre</b></li><li><span>tu</span><b>offres</b></li><li><span>il</span><b>offre</b></li><li><span>ns</span><b>offrons</b></li><li><span>vs</span><b>offrez</b></li><li><span>ils</span><b>offrent</b></li></ul></div>
+    <div class="conj-card"><h4>dormir</h4><ul><li><span>je</span><b>dors</b></li><li><span>tu</span><b>dors</b></li><li><span>il</span><b>dort</b></li><li><span>ns</span><b>dormons</b></li><li><span>vs</span><b>dormez</b></li><li><span>ils</span><b>dorment</b></li></ul></div>
+  </div>
+
+  <h3>2<sup>e</sup> groupe <span class="vn">(-ir → nous -issons)</span></h3>
+  <div class="conj-grid">
+    <div class="conj-card"><h4>finir</h4><ul><li><span>je</span><b>finis</b></li><li><span>tu</span><b>finis</b></li><li><span>il</span><b>finit</b></li><li><span>ns</span><b>finissons</b></li><li><span>vs</span><b>finissez</b></li><li><span>ils</span><b>finissent</b></li></ul></div>
+    <div class="conj-card"><h4>choisir</h4><ul><li><span>je</span><b>choisis</b></li><li><span>tu</span><b>choisis</b></li><li><span>il</span><b>choisit</b></li><li><span>ns</span><b>choisissons</b></li><li><span>vs</span><b>choisissez</b></li><li><span>ils</span><b>choisissent</b></li></ul></div>
+    <div class="conj-card"><h4>réfléchir</h4><ul><li><span>je</span><b>réfléchis</b></li><li><span>tu</span><b>réfléchis</b></li><li><span>il</span><b>réfléchit</b></li><li><span>ns</span><b>réfléchissons</b></li><li><span>vs</span><b>réfléchissez</b></li><li><span>ils</span><b>réfléchissent</b></li></ul></div>
+    <div class="conj-card"><h4>rougir</h4><ul><li><span>je</span><b>rougis</b></li><li><span>tu</span><b>rougis</b></li><li><span>il</span><b>rougit</b></li><li><span>ns</span><b>rougissons</b></li><li><span>vs</span><b>rougissez</b></li><li><span>ils</span><b>rougissent</b></li></ul></div>
+  </div>
+
+  <h3>1<sup>er</sup> groupe régulier <span class="vn">(-e -es -e -ons -ez -ent)</span></h3>
+  <div class="conj-grid">
+    <div class="conj-card"><h4>parler</h4><ul><li><span>je</span><b>parle</b></li><li><span>tu</span><b>parles</b></li><li><span>il</span><b>parle</b></li><li><span>ns</span><b>parlons</b></li><li><span>vs</span><b>parlez</b></li><li><span>ils</span><b>parlent</b></li></ul></div>
+    <div class="conj-card"><h4>travailler</h4><ul><li><span>je</span><b>travaille</b></li><li><span>tu</span><b>travailles</b></li><li><span>il</span><b>travaille</b></li><li><span>ns</span><b>travaillons</b></li><li><span>vs</span><b>travaillez</b></li><li><span>ils</span><b>travaillent</b></li></ul></div>
+    <div class="conj-card"><h4>chercher</h4><ul><li><span>je</span><b>cherche</b></li><li><span>tu</span><b>cherches</b></li><li><span>il</span><b>cherche</b></li><li><span>ns</span><b>cherchons</b></li><li><span>vs</span><b>cherchez</b></li><li><span>ils</span><b>cherchent</b></li></ul></div>
+    <div class="conj-card"><h4>trouver</h4><ul><li><span>je</span><b>trouve</b></li><li><span>tu</span><b>trouves</b></li><li><span>il</span><b>trouve</b></li><li><span>ns</span><b>trouvons</b></li><li><span>vs</span><b>trouvez</b></li><li><span>ils</span><b>trouvent</b></li></ul></div>
+    <div class="conj-card"><h4>prêter</h4><ul><li><span>je</span><b>prête</b></li><li><span>tu</span><b>prêtes</b></li><li><span>il</span><b>prête</b></li><li><span>ns</span><b>prêtons</b></li><li><span>vs</span><b>prêtez</b></li><li><span>ils</span><b>prêtent</b></li></ul></div>
+  </div>
+  <p class="note">Chia y hệt parler: marcher, déjeuner, dîner, arriver, entrer, rentrer, visiter, regarder, aider, danser, chanter, habiter, aimer, jouer, détester, adorer, fêter…</p>
+
+  <h3>1<sup>er</sup> groupe avec changement de radical <span class="vn">(đổi gốc)</span></h3>
+  <div class="conj-grid">
+    <div class="conj-card"><h4>acheter <span style="font-weight:400;font-size:.76rem">(è)</span></h4><ul><li><span>j'</span><b>achète</b></li><li><span>tu</span><b>achètes</b></li><li><span>il</span><b>achète</b></li><li><span>ns</span><b>achetons</b></li><li><span>vs</span><b>achetez</b></li><li><span>ils</span><b>achètent</b></li></ul></div>
+    <div class="conj-card"><h4>préférer <span style="font-weight:400;font-size:.76rem">(è)</span></h4><ul><li><span>je</span><b>préfère</b></li><li><span>tu</span><b>préfères</b></li><li><span>il</span><b>préfère</b></li><li><span>ns</span><b>préférons</b></li><li><span>vs</span><b>préférez</b></li><li><span>ils</span><b>préfèrent</b></li></ul></div>
+    <div class="conj-card"><h4>appeler <span style="font-weight:400;font-size:.76rem">(ll)</span></h4><ul><li><span>j'</span><b>appelle</b></li><li><span>tu</span><b>appelles</b></li><li><span>il</span><b>appelle</b></li><li><span>ns</span><b>appelons</b></li><li><span>vs</span><b>appelez</b></li><li><span>ils</span><b>appellent</b></li></ul></div>
+    <div class="conj-card"><h4>envoyer <span style="font-weight:400;font-size:.76rem">(y→i)</span></h4><ul><li><span>j'</span><b>envoie</b></li><li><span>tu</span><b>envoies</b></li><li><span>il</span><b>envoie</b></li><li><span>ns</span><b>envoyons</b></li><li><span>vs</span><b>envoyez</b></li><li><span>ils</span><b>envoient</b></li></ul></div>
+  </div>
+  <p class="note">Đổi gốc <b>chỉ ở</b> je/tu/il/ils; <b>nous/vous</b> giữ gốc gốc (achetons, préférons, appelons, envoyons).</p>
+
+  <h3>Verbes pronominaux <span class="vn">(phản thân)</span></h3>
+  <div class="conj-grid">
+    <div class="conj-card"><h4>s'appeler</h4><ul><li><span>je</span><b>m'appelle</b></li><li><span>tu</span><b>t'appelles</b></li><li><span>il</span><b>s'appelle</b></li><li><span>ns</span><b>ns appelons</b></li><li><span>vs</span><b>vs appelez</b></li><li><span>ils</span><b>s'appellent</b></li></ul></div>
+    <div class="conj-card"><h4>se lever <span style="font-weight:400;font-size:.76rem">(è)</span></h4><ul><li><span>je</span><b>me lève</b></li><li><span>tu</span><b>te lèves</b></li><li><span>il</span><b>se lève</b></li><li><span>ns</span><b>ns levons</b></li><li><span>vs</span><b>vs levez</b></li><li><span>ils</span><b>se lèvent</b></li></ul></div>
+    <div class="conj-card"><h4>se laver</h4><ul><li><span>je</span><b>me lave</b></li><li><span>tu</span><b>te laves</b></li><li><span>il</span><b>se lave</b></li><li><span>ns</span><b>ns lavons</b></li><li><span>vs</span><b>vs lavez</b></li><li><span>ils</span><b>se lavent</b></li></ul></div>
+    <div class="conj-card"><h4>se promener <span style="font-weight:400;font-size:.76rem">(è)</span></h4><ul><li><span>je</span><b>me promène</b></li><li><span>tu</span><b>te promènes</b></li><li><span>il</span><b>se promène</b></li><li><span>ns</span><b>ns promenons</b></li><li><span>vs</span><b>vs promenez</b></li><li><span>ils</span><b>se promènent</b></li></ul></div>
+    <div class="conj-card"><h4>s'intéresser</h4><ul><li><span>je</span><b>m'intéresse</b></li><li><span>tu</span><b>t'intéresses</b></li><li><span>il</span><b>s'intéresse</b></li><li><span>ns</span><b>ns intéressons</b></li><li><span>vs</span><b>vs intéressez</b></li><li><span>ils</span><b>s'intéressent</b></li></ul></div>
+    <div class="conj-card"><h4>se sentir</h4><ul><li><span>je</span><b>me sens</b></li><li><span>tu</span><b>te sens</b></li><li><span>il</span><b>se sent</b></li><li><span>ns</span><b>ns sentons</b></li><li><span>vs</span><b>vs sentez</b></li><li><span>ils</span><b>se sentent</b></li></ul></div>
+  </div>
+  <a class="top" href="#top">↑ về đầu trang</a>
+</section>
+
+<footer>
+  Bản tổng hợp ôn tập do Claude soạn từ toàn bộ slide <i>Cours de français général</i> (Pr. Sookjin Hwang), Semaines 1–15 · Leçons 1–8, cùng hai fiche của cô: <i>Conjugaison des verbes</i> và <i>Exercices — pronoms interrogatifs, COD, COI</i>. Đáp án phần bài tập do Claude soạn — bấm "Xem đáp án". Giữa kỳ rơi vào Semaine 8.
+</footer>
+
+</div>
+</body>
+</html>
